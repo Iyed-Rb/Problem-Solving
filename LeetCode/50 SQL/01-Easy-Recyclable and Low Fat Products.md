@@ -3,12 +3,17 @@
 LeetCode: https://leetcode.com/problems/find-products-with-low-fat-and-recyclable
 
 ## Question
-
 Write an SQL query to find the ids of products that are both low fat and recyclable.
 
 ## Solution
 
-```sql
+Approach 1: Simple WHERE Filter (Recommended)
 SELECT product_id
 FROM Products
 WHERE low_fats = 'Y' AND recyclable = 'Y';
+
+Approach 2: Using CASE in WHERE Clause
+Not necessary but demonstrates conditional filtering.
+SELECT product_id
+FROM Products
+WHERE CASE WHEN low_fats = 'Y' AND recyclable = 'Y' THEN 1 ELSE 0 END = 1;
