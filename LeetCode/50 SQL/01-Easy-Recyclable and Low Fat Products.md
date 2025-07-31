@@ -8,12 +8,16 @@ Write an SQL query to find the ids of products that are both low fat and recycla
 ## Solution
 
 Approach 1: Simple WHERE Filter (Recommended)
+```sql
 SELECT product_id
 FROM Products
 WHERE low_fats = 'Y' AND recyclable = 'Y';
+```
 
 Approach 2: Using CASE in WHERE Clause
 Not necessary but demonstrates conditional filtering.
+```sql
 SELECT product_id
 FROM Products
 WHERE CASE WHEN low_fats = 'Y' AND recyclable = 'Y' THEN 1 ELSE 0 END = 1;
+```

@@ -10,13 +10,16 @@ Return the result table sorted by `id` in ascending order.
 
 Approach 1: Using DISTINCT (Recommended)
 Filters only self-views (author_id = viewer_id), removes duplicates, and sorts the result.
+```sql
 SELECT DISTINCT author_id AS id
 FROM Views
 WHERE author_id = viewer_id
 ORDER BY author_id ASC;
+```
 
 Approach 2: Using EXISTS
 Checks if at least one self-view exists for each author. DISTINCT is not required because EXISTS returns a boolean result.
+```sql
 SELECT v1.author_id AS id
 FROM Views v1
 WHERE EXISTS (
@@ -26,12 +29,15 @@ WHERE EXISTS (
       AND v2.author_id = v2.viewer_id
 )
 ORDER BY id ASC;
+```
 
 Approach 3: Using SELF JOIN
 Joins the table with itself to match authors with their own views.
+```sql
 SELECT DISTINCT v1.author_id AS id
 FROM Views v1
 JOIN Views v2 
   ON v1.author_id = v2.author_id 
  WHERE v2.author_id = v2.viewer_id
 ORDER BY id ASC;
+```

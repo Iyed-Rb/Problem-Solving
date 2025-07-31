@@ -11,12 +11,15 @@ A country is big if:
 ## Solution
 
 Approach 1: Simple OR Filter (Recommended)
+```sql
 SELECT name, population, area
 FROM World
 WHERE area >= 3000000 OR population >= 25000000;
+```
 
 Approach 2: Using UNION
 Separate both conditions and combine the results.
+```sql
 SELECT name, population, area
 FROM World
 WHERE area >= 3000000
@@ -24,12 +27,15 @@ UNION
 SELECT name, population, area
 FROM World
 WHERE population >= 25000000;
+```
 
 Approach 3: Using CASE in WHERE
 A less common approach but works.
+```sql
 SELECT name, population, area
 FROM World
 WHERE CASE 
           WHEN area >= 3000000 OR population >= 25000000 THEN 1 
           ELSE 0 
       END = 1;
+```
