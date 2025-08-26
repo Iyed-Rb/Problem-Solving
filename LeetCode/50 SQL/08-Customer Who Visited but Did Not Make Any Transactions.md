@@ -7,7 +7,7 @@ Write a solution to find the IDs of the users who visited without making any tra
 
 ## Solution
 ```sql
--- Approach 1: Using LEFT JOIN (Recommended)
+-- Approach 1: Using LEFT JOIN (My Solution)
 SELECT V.customer_id, COUNT(*) AS count_no_trans
 FROM Visits V
 LEFT JOIN Transactions T

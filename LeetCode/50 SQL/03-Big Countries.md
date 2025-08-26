@@ -10,7 +10,7 @@ A country is big if:
 
 ## Solution
 
-Approach 1: Simple OR Filter (Recommended)
+Approach 1: Simple OR Filter (My Solution)
 ```sql
 SELECT name, population, area
 FROM World

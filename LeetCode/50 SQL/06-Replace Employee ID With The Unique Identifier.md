@@ -8,7 +8,7 @@ If a user does not have a unique ID, show null instead.
 
 ## Solution
 
-Approach 1: Using LEFT JOIN (Recommended)
+Approach 1: Using LEFT JOIN (My Solution) / Or we can Use Right Join but Reverse
 Returns all employees, and for those who don't have a unique ID, shows null.
 ```sql
 SELECT unique_id, name 
@@ -27,6 +27,3 @@ SELECT
     name
 FROM Employees;
 ```
-
-Approach 3: Using RIGHT JOIN (Same as Approach 1 just reverse)
-

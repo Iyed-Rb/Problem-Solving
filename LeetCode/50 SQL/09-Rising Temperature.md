@@ -13,25 +13,7 @@ On W2.recordDate = DATEADD(DAY, 1, W1.recordDate)
 where W2.temperature > W1.temperature
 ```
 
--- Approach 2: Using INNER JOIN(show this to know that wecan reverse it)
-```sql
-SELECT W1.id AS id
-FROM Weather W2
-INNER JOIN Weather W1
-  ON W1.recordDate = DATEADD(DAY, 1, W2.recordDate)
-WHERE W1.temperature > W2.temperature;
-```
-
--- Approach 3: Using DATEDIFF (Alternative for SQL Server)
-```sql
-SELECT W2.id AS id
-FROM Weather W1
-INNER JOIN Weather W2
-  ON DATEDIFF(DAY, W1.recordDate, W2.recordDate) = 1
-WHERE W2.temperature > W1.temperature;
-```
-
--- Approach 4: Using Correlated Subquery (Works in most databases including MySQL)
+-- Approach 2: Using Correlated Subquery
 ```sql
 SELECT W2.id
 FROM Weather W2

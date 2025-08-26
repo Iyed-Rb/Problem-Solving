@@ -7,7 +7,7 @@ Write a solution to report the product_name, year, and price for each sale_id in
 
 ## Solution
 ```sql
--- Approach 1: Using INNER JOIN (Recommended)
+-- Approach 1: Using INNER JOIN
 -- Efficient and clean because it directly joins the two tables based on product_id.
 SELECT product_name, year, price
 FROM Sales
@@ -16,7 +16,7 @@ INNER JOIN Product
 ```
 
 -- Approach 2: Using Subquery
--- Uses a correlated subquery to fetch the product name for each sale. Less efficient but valid.
+-- Uses a correlated subquery to fetch the product name for each sale
 ```sql
 SELECT 
     (SELECT product_name 

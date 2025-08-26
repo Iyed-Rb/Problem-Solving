@@ -9,7 +9,7 @@ Write an SQL query to find the names of customers who are either:
 
 ## Solution
 
-Approach 1: Using OR (Recommended)
+Approach 1: Using OR (My Solution)
 Simple filtering for both conditions.
 ```sql
 SELECT name
@@ -18,7 +18,7 @@ WHERE referee_id != 2 OR referee_id IS NULL;
 ```
 
 Approach 2: Using NOT IN
-Avoids explicit OR by excluding referee_id = 2.
+Useful when we want to exclude multiple values.
 ```sql
 SELECT name
 FROM Customer

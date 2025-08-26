@@ -8,7 +8,7 @@ Return the result table sorted by `id` in ascending order.
 
 ## Solution
 
-Approach 1: Using DISTINCT (Recommended)
+Approach 1: Using DISTINCT (My Solution)
 Filters only self-views (author_id = viewer_id), removes duplicates, and sorts the result.
 ```sql
 SELECT DISTINCT author_id AS id
