@@ -1,13 +1,19 @@
 ## Problem #7: Students and Examinations
 
-LeetCode: https://leetcode.com/problems/students-and-examinations
+**LeetCode:** [Students and Examinations](https://leetcode.com/problems/students-and-examinations)
 
-Question: Write a solution to find the number of times each student attended each exam.
+---
 
-Approach 1 : My Solution
-We dont need an Outer Table of Examination here
-we did it only inside the subquery to Chech if the exam is Attended
-Students and Subjects Tables Are Enough to generate all Cases via Cross Join
+### Question  
+Write a solution to find the number of times each student attended each exam.
+
+---
+
+### Approach 1: Using Subquery  
+
+We don’t need an outer table of `Examinations` here.  
+We only use it inside the subquery to check if the exam is attended.  
+`Students` and `Subjects` tables are enough to generate all cases via **CROSS JOIN**.  
 ```sql
 select S.student_id, S.student_name, S1.subject_name,
  (select Count(*) from Examinations 
@@ -20,10 +26,10 @@ select S.student_id, S.student_name, S1.subject_name,
    order by  S.student_id, S.student_name, S1.subject_name
 ```
 
-Approach 2: Without Subquery
-Students and Subjects Tables Are Enough to generate all Cases via Cross Join
+### Approach 2: Without Subquery
+Students and Subjects Tables Are Enough to generate all Cases via Cross Join.
 For each (student, subject) pair we attach matching Examinations rows.
-If there are matching exam rows, the LEFT JOIN produces one output row per matching exam 
+If there are matching exam rows, the LEFT JOIN produces one output row per matching exam.
 (so duplicates appear if a student has multiple exam records for the same subject).
 If there are no matches, the join produces a single row with all e.* = NULL.
 ```sql
