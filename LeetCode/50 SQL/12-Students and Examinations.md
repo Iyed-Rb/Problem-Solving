@@ -1,4 +1,4 @@
-## Problem #7: Students and Examinations
+## Problem #12: Students and Examinations
 
 **LeetCode:** [Students and Examinations](https://leetcode.com/problems/students-and-examinations)
 
@@ -27,11 +27,11 @@ select S.student_id, S.student_name, S1.subject_name,
 ```
 
 ### Approach 2: Without Subquery
-Students and Subjects Tables Are Enough to generate all Cases via Cross Join.  
-For each (student, subject) pair we attach matching Examinations rows.  
-If there are matching exam rows, the LEFT JOIN produces one output row per matching exam.  
+Students and Subjects Tables Are Enough to generate all Cases via **Cross Join**.  
+For each `(student, subject)` pair we attach matching Examinations rows.  
+If there are matching exam rows, the LEFT JOIN produces `one output row` per matching exam.  
 (so duplicates appear if a student has multiple exam records for the same subject).  
-If there are no matches, the join produces a single row with all e.* = NULL.
+If there are no matches, the join produces a single row with all `e.* = NULL`.  
 ```sql
 SELECT s.student_id, s.student_name, sub.subject_name, 
   COUNT(e.subject_name) AS attended_exams
