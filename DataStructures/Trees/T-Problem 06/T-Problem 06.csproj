@@ -3,13 +3,9 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>T_Problem_04</RootNamespace>
+    <RootNamespace>T_Problem_06</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Include="C:\Users\HP\Documents\Problem Solving\DataStructures\Trees\T-Problem 04\Program.cs" Link="Program.cs" />
-  </ItemGroup>
 
 </Project>
