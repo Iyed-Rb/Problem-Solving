@@ -3,30 +3,30 @@ using System.Collections.Generic;
 
 class Program
 {
-    static int Count(int[] arr)
+    static int MajorityElement(int[] nums)
     {
-        int count = 0;
-        if (arr.Length > 0) count++;
+        Dictionary<int, int> counts = new Dictionary<int, int>();
 
-        for (int i = 0; i < arr.Length - 1; i++)
+        int majorityCount = nums.Length / 2;
+
+        foreach (int num in nums)
         {
-            if (arr[i + 1] - arr[i] == 1) 
-                count++;
-            else
-                return count;
+            if (!counts.ContainsKey(num))
+                counts[num] = 0;
+
+            counts[num]++;
+
+            if (counts[num] > majorityCount)
+                return num;
         }
 
-
-        return count;
+        return -1; // This line should not be reached in valid input
     }
 
     static void Main()
     {
-        int[] arr = { 100, 4, 200, 1, 3, 2 };
-        Array.Sort(arr);
-
-        Console.WriteLine("Long Consecutive Sequence: " + Count(arr));
-
-
+        int[] nums = { 3, 2, 3 };
+        Console.WriteLine(MajorityElement(nums)); // Output: 3
+        Console.ReadKey();
     }
 }
