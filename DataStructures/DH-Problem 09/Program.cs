@@ -16,7 +16,6 @@ class Program
                 frequency[c] = 1;
         }
 
-
         return frequency;
     }
 

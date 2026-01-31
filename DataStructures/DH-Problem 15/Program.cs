@@ -1,10 +1,28 @@
-﻿namespace DH_Problem_15
+﻿using System;
+using System.Collections.Generic;
+
+class Program
 {
-    internal class Program
+    static int FindMissingNumber(int[] nums)
     {
-        static void Main(string[] args)
+        HashSet<int> set = new HashSet<int>(nums);
+        int n = nums.Length;
+
+
+        for (int i = 0; i <= n; i++)
         {
-            Console.WriteLine("Hello, World!");
+            if (!set.Contains(i))
+                return i;
         }
+
+        return -1;
+    }
+
+    static void Main()
+    {
+        int[] nums = { 3, 0, 1 };
+        Console.WriteLine(FindMissingNumber(nums)); // Output: 2
+        Console.ReadKey();
+
     }
 }
